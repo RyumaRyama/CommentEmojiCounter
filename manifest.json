@@ -3,6 +3,9 @@
   "name": "CommentEmojiCounter",
   "version": "1.0.0",
   "description": "Count emoji in YouTube Live chat.",
+  "icons": {
+    "128": "icons/128.png"
+  },
   "content_scripts": [
     {
       "matches": [
