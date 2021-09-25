@@ -47,9 +47,9 @@ class EmojiCountViewer {
     );
   };
 
-  countUp = () => {
+  countUp = (count = 50) => {
     const emoji_count = this.emoji_count_viewer_container.textContent;
-    const add_count_num = parseInt(emoji_count.replace(/,/g, '')) + 50
+    const add_count_num = parseInt(emoji_count.replace(/,/g, '')) + count
     this.emoji_count_viewer_container.innerHTML = add_count_num.toLocaleString();
   };
 }
