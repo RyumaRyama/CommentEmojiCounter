@@ -12,8 +12,7 @@ class CommentObserver {
     const comments = document.getElementById('item-offset').firstElementChild;
     const observer = new MutationObserver(() => {
       const message = comments.lastElementChild.querySelector('#message');
-      if (message.querySelectorAll('img').length <= 0) return;
-      this.emoji_counter.countUp();
+      this.emoji_counter.countUp(message.querySelectorAll('img').length * 5);
     });
     const config = { childList: true };
     observer.observe(comments, config);
@@ -27,7 +26,8 @@ class CommentObserver {
 
     const gift_window = window.open('', 'gift-viewer');
     const gifts = gift_window.document.getElementById('gift-viewer');
-    const observer = new MutationObserver(() => {
+    const observer = new MutationObserver((mutations) => {
+      if (mutations[0].removedNodes.length > 0) return;
       const gift = gifts.lastElementChild;
       let count = 5;
       if (gift !== null)
